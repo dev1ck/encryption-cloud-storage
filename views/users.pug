@@ -1,0 +1,139 @@
+doctype html
+head
+  meta(charset='utf-8')
+  title 사용자 - E.C.S
+  meta(http-equiv='X-UA-Compatible')
+  meta(name='referrer', content='never')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0')
+  meta(name='theme-color', content='#1B223D')
+  link(rel='icon', href='/core/img/favicon.ico')
+  link(rel='apple-touch-icon-precomposed', href='/core/img/favicon-touch.png')
+  link(rel='mask-icon', sizes='any', href='/core/img/favicon-mask.svg', color='#1B223D')
+  link(rel='manifest', href='/core/img/manifest.json')
+  link(rel='stylesheet', href='/core/vendor/select2/select2.css')
+  link(rel='stylesheet', href='/core/css/styles.css')
+  link(rel='stylesheet', href='/core/css/inputs.css')
+  link(rel='stylesheet', href='/core/css/header.css')
+  link(rel='stylesheet', href='/core/css/icons.css')
+  link(rel='stylesheet', href='/core/css/fonts.css')
+  link(rel='stylesheet', href='/core/css/apps.css')
+  link(rel='stylesheet', href='/core/css/global.css')
+  link(rel='stylesheet', href='/core/css/fixes.css')
+  link(rel='stylesheet', href='/core/css/multiselect.css')
+  link(rel='stylesheet', href='/core/css/mobile.css')
+  link(rel='stylesheet', href='/core/vendor/jquery-ui/themes/base/jquery-ui.css')
+  link(rel='stylesheet', href='/core/css/jquery-ui-fixes.css')
+  link(rel='stylesheet', href='/core/css/tooltip.css')
+  link(rel='stylesheet', href='/core/css/share.css')
+  link(rel='stylesheet', href='/core/css/jquery.ocdialog.css')
+  link(rel='stylesheet', href='/apps/files/css/files.css')
+  link(rel='stylesheet', href='/apps/files/css/upload.css')
+  link(rel='stylesheet', href='/apps/files/css/mobile.css')
+  link(rel='stylesheet', href='/apps/files/css/detailsView.css')
+  link(rel='stylesheet', href='/core/css/systemtags.css')
+  link(rel='stylesheet' href='/settings/css/settings.css')
+  script(src='/core/vendor/jquery/dist/jquery.min.js')
+  script(src='/core/vendor/jquery-migrate/jquery-migrate.min.js')
+  script(src='/core/vendor/jquery-ui/ui/jquery-ui.custom.js')
+  script(src='/core/vendor/underscore/underscore.js')
+  script(src='/core/vendor/moment/min/moment-with-locales.js')
+  script(src='/core/vendor/handlebars/handlebars.js')
+  script(src='/core/vendor/blueimp-md5/js/md5.js')
+  script(src='/core/vendor/bootstrap/js/tooltip.js')
+  script(src='/core/vendor/backbone/backbone.js')
+  script(src='/core/vendor/es6-promise/es6-promise.auto.js')
+  script(src='/core/vendor/davclient.js/lib/client.js')
+  script(src='/core/vendor/clipboard/dist/clipboard.js')
+  script(src='/core/vendor/bowser/src/bowser.js')
+  script(src='/core/js/jquery.ocdialog.js')
+  script(src='/core/js/oc-dialogs.js')
+  script(src='/core/js/js.js')
+  script(src='/settings/l10n/ko.js')
+  script(src='/settings/js/users/deleteHandler.js')
+  script(src='/settings/js/users/filter.js')
+  script(src='/settings/js/users/users.js')
+  script(src='/settings/js/users/groups.js')
+  body#body-settings
+    header(role='banner')
+      #header
+        a#owncloud(href='/', tabindex='1')
+          h1.logo-icon E.C.S
+        a.header-appname-container.menutoggle(href='#', tabindex='2')
+          button.burger 메뉴
+          h1.header-appname 사용자
+        #logo-claim(style='display:none;')
+        #settings
+          #expand.menutoggle(tabindex='6', role='link')
+            .avatardiv(style='display: none')
+            span#expandDisplayName #{user}
+          #expanddiv
+             -var state = 'none'
+              if isAdmin
+                -state = 'block'
+              ul
+                li(style=`display: ${state}`)
+                  a(href='/log')
+                    img(alt='', src='/settings/img/admin.svg')
+                    | 로그
+                li(style=`display: ${state}`)
+                  a(href='/users')
+                    img(alt='', src='/settings/img/users.svg')
+                    | 사용자
+                li
+                  a#logout(href='/login/logout')
+                    img(alt='', src='/core/img/actions/logout.svg')
+                    | 로그아웃
+        form.searchbox(action='#', method='post', role='search', novalidate='')
+          label.hidden-visually(for='searchbox')
+            | 검색
+          input#searchbox(type='search', name='query', value='', required='', autocomplete='off', tabindex='5')
+    #content-wrapper
+      #content.app-settings(role='main')
+        #app-content
+          #controls
+            form#newuser(autocomplete='off', autocapitalize='none', action='users/create_user', method='POST')
+              input#newusername(type='text', placeholder='사용자 이름', autocomplete='off', autocorrect='off', name='userId')
+              input#newuserpassword(type='password', placeholder='암호', autocomplete='new-password', autocorrect='off', name='pass')
+              input.button(type='submit', value='만들기')
+          table#userlist.hascontrols.grid(data-groups='["admin"]')
+            thead
+              tr
+                th#headerAvatar(scope='col')
+                th#headerName(scope='col') 사용자 이름
+                th#headerPassword.password(scope='col') 암호
+                th.enabled(scope='col') 활성
+                th#headerQuota.quota(scope='col') 할당량
+                th#headerRemove &nbsp;
+            tbody
+              each member in members
+                form(method='POST')
+                  -var deleteDisplay = 'block'
+                  -var isActive = true
+                  if member.state === 'A'
+                    -deleteDisplay = 'none'
+                  if member.state === 'N'
+                    -isActive =false
+                  tr
+                    td.avatar
+                      .avatardiv
+                    th.name(scope='row') #{member.user_id}
+                    td.password
+                      span ●●●●●●●
+                      img.action(src='/core/img/actions/rename.svg', alt='새 암호 설정', title='새 암호 설정')
+                    td.enabled
+                      input.isEnabled(type='checkbox', checked=isActive)
+                    td.quota
+                      select.quota-user(data-inputtitle='저장소 할당량을 입력하십시오 (예: "512 MB", "12 GB")')
+                        option(value='default')
+                          | 무제한
+                        option(value='1 GB')
+                          | 1 GB
+                        option(value='5 GB')
+                          | 5 GB
+                        option(value='10 GB')
+                          | 10 GB
+                        option(value='other', data-new='')
+                          | 기타 ...
+                    td.remove
+                      input(type='image', src ='/core/img/actions/delete.svg', formaction='/users/delete', style=`display:${deleteDisplay};`)
+                    input(type='hidden', name='userName' ,value=`${member.user_id}`)

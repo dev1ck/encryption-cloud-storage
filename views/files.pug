@@ -1,0 +1,315 @@
+doctype html
+head
+  meta(charset='utf-8')
+  title 파일 - E.C.S
+  meta(http-equiv='X-UA-Compatible')
+  meta(name='referrer', content='never')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0')
+  meta(name='theme-color', content='#1B223D')
+  link(rel='icon', href='/core/img/favicon.ico')
+  link(rel='stylesheet', href='/core/vendor/select2/select2.css')
+  link(rel='stylesheet', href='/core/css/styles.css')
+  link(rel='stylesheet', href='/core/css/inputs.css')
+  link(rel='stylesheet', href='/core/css/header.css')
+  link(rel='stylesheet', href='/core/css/icons.css')
+  link(rel='stylesheet', href='/core/css/fonts.css')
+  link(rel='stylesheet', href='/core/css/apps.css')
+  link(rel='stylesheet', href='/core/css/global.css')
+  link(rel='stylesheet', href='/core/css/fixes.css')
+  link(rel='stylesheet', href='/core/css/multiselect.css')
+  link(rel='stylesheet', href='/core/css/mobile.css')
+  link(rel='stylesheet', href='/core/vendor/jquery-ui/themes/base/jquery-ui.css')
+  link(rel='stylesheet', href='/core/css/jquery-ui-fixes.css')
+  link(rel='stylesheet', href='/core/css/tooltip.css')
+  link(rel='stylesheet', href='/apps/files_pdfviewer/css/style.css')
+  link(rel='stylesheet', href='/core/css/share.css')
+  link(rel='stylesheet', href='/apps/files_versions/css/versions.css')
+  link(rel='stylesheet', href='/apps/firstrunwizard/css/colorbox.css')
+  link(rel='stylesheet', href='/apps/firstrunwizard/css/firstrunwizard.css')
+  link(rel='stylesheet', href='/apps/notifications/css/styles.css')
+  link(rel='stylesheet', href='/core/css/jquery.ocdialog.css')
+  link(rel='stylesheet', href='/apps/files/css/files.css')
+  link(rel='stylesheet', href='/apps/files/css/upload.css')
+  link(rel='stylesheet', href='/apps/files/css/mobile.css')
+  link(rel='stylesheet', href='/apps/files/css/detailsView.css')
+  link(rel='stylesheet', href='/apps/files_sharing/css/sharedfilelist.css')
+  link(rel='stylesheet', href='/apps/activity/css/style.css')
+  link(rel='stylesheet', href='/apps/comments/css/comments.css')
+  link(rel='stylesheet', href='/apps/files_sharing/css/sharetabview.css')
+  link(rel='stylesheet', href='/apps/files_texteditor/css/DroidSansMono/stylesheet.css')
+  link(rel='stylesheet', href='/apps/files_texteditor/css/style.css')
+  link(rel='stylesheet', href='/apps/files_texteditor/css/mobile.css')
+  link(rel='stylesheet', href='/core/css/systemtags.css')
+  link(rel='stylesheet', href='/apps/systemtags/css/systemtagsfilelist.css')
+  script(src='/core/vendor/jquery/dist/jquery.min.js')
+  script(src='/core/vendor/jquery-migrate/jquery-migrate.min.js')
+  script(src='/core/vendor/jquery-ui/ui/jquery-ui.custom.js')
+  script(src='/core/vendor/underscore/underscore.js')
+  script(src='/core/vendor/moment/min/moment-with-locales.js')
+  script(src='/core/vendor/handlebars/handlebars.js')
+  script(src='/core/vendor/blueimp-md5/js/md5.js')
+  script(src='/core/vendor/bootstrap/js/tooltip.js')
+  script(src='/core/vendor/backbone/backbone.js')
+  script(src='/core/vendor/es6-promise/es6-promise.auto.js')
+  script(src='/core/vendor/davclient.js/lib/client.js')
+  script(src='/core/vendor/clipboard/dist/clipboard.js')
+  script(src='/core/vendor/bowser/src/bowser.js')
+  script(src='/core/js/jquery.ocdialog.js')
+  script(src='/core/js/oc-dialogs.js')
+  script(src='/core/js/js.js')
+  script(src='/core/js/l10n.js')
+  script(src='/core/l10n/ko.js')
+  script(src='/core/js/octemplate.js')
+  script(src='/core/js/eventsource.js')
+  script(src='/core/js/config.js')
+  script(src='/core/search/js/search.js')
+  script(src='/core/js/oc-requesttoken.js')
+  script(src='/core/js/apps.js')
+  script(src='/core/js/mimetype.js')
+  script(src='/core/js/mimetypelist.js')
+  script(src='/core/vendor/snapjs/dist/latest/snap.js')
+  script(src='/core/vendor/select2/select2.js')
+  script(src='/core/js/oc-backbone.js')
+  script(src='/core/js/oc-backbone-webdav.js')
+  script(src='/core/js/placeholder.js')
+  script(src='/core/js/jquery.avatar.js')
+  script(src='/apps/files_pdfviewer/js/previewplugin.js')
+  script(src='/core/js/shareconfigmodel.js')
+  script(src='/core/js/sharemodel.js')
+  script(src='/core/js/sharescollection.js')
+  script(src='/core/js/shareitemmodel.js')
+  script(src='/core/js/sharedialogresharerinfoview.js')
+  script(src='/core/js/sharedialoglinklistview.js')
+  script(src='/core/js/sharedialoglinkshareview.js')
+  script(src='/core/js/sharedialogmailview.js')
+  script(src='/core/js/sharedialoglinksocialview.js')
+  script(src='/core/js/sharedialoglinkexpirationview.js')
+  script(src='/core/js/sharedialogshareelistview.js')
+  script(src='/core/js/sharedialogview.js')
+  script(src='/core/js/share.js')
+  script(src='/core/js/user.js')
+  script(src='/apps/firstrunwizard/l10n/ko.js')
+  script(src='/apps/firstrunwizard/js/jquery.colorbox.js')
+  script(src='/apps/firstrunwizard/js/firstrunwizard.js')
+  script(src='/apps/notifications/js/app.js')
+  script(src='/apps/notifications/js/notification.js')
+  script(src='/apps/updatenotification/l10n/ko.js')
+  script(src='/apps/updatenotification/js/notification.js')
+  script(src='/core/js/files/fileinfo.js')
+  script(src='/core/js/files/client.js')
+  script(src='/apps/files/l10n/ko.js')
+  script(src='/apps/files/js/app.js')
+  script(src='/apps/files/js/file-upload.js')
+  script(src='/apps/files/js/newfilemenu.js')
+  script(src='/apps/files/js/jquery.fileupload.js')
+  script(src='/apps/files/js/jquery-visibility.js')
+  script(src='/apps/files/js/fileinfomodel.js')
+  script(src='/apps/files/js/filesummary.js')
+  script(src='/apps/files/js/breadcrumb.js')
+  script(src='/apps/files/js/filelist.js')
+  script(src='/apps/files/js/search.js')
+  script(src='/apps/files/js/favoritesfilelist.js')
+  script(src='/apps/files/js/tagsplugin.js')
+  script(src='/apps/files/js/favoritesplugin.js')
+  script(src='/apps/files/js/filelockplugin.js')
+  script(src='/apps/files/js/detailfileinfoview.js')
+  script(src='/apps/files/js/detailtabview.js')
+  script(src='/apps/files/js/mainfileinfodetailview.js')
+  script(src='/apps/files/js/detailsview.js')
+  script(src='/apps/files/js/locktabview.js')
+  script(src='/apps/files/js/fileactions.js')
+  script(src='/apps/files/js/fileactionsmenu.js')
+  script(src='/apps/files/js/fileactionsapplicationselectmenu.js')
+  script(src='/apps/files/js/files.js')
+  script(src='/apps/files/js/keyboardshortcuts.js')
+  script(src='/apps/files/js/navigation.js')
+  script(src='/apps/files_sharing/l10n/ko.js')
+  script(src='/apps/files_sharing/js/app.js')
+  script(src='/apps/files_sharing/js/sharedfilelist.js')
+  script(src='/apps/files_trashbin/l10n/ko.js')
+  script(src='/apps/files_trashbin/js/app.js')
+  script(src='/apps/files_trashbin/js/filelist.js')
+  script(src='/apps/activity/l10n/ko.js')
+  script(src='/apps/activity/js/formatter.js')
+  script(src='/apps/activity/js/activitymodel.js')
+  script(src='/apps/activity/js/activitycollection.js')
+  script(src='/apps/activity/js/activitytabview.js')
+  script(src='/apps/activity/js/filesplugin.js')
+  script(src='/apps/comments/l10n/ko.js')
+  script(src='/apps/comments/js/app.js')
+  script(src='/apps/comments/js/commentmodel.js')
+  script(src='/apps/comments/js/commentcollection.js')
+  script(src='/apps/comments/js/commentsummarymodel.js')
+  script(src='/apps/comments/js/commentstabview.js')
+  script(src='/apps/comments/js/filesplugin.js')
+  script(src='/apps/comments/js/activitytabviewplugin.js')
+  script(src='/apps/files_sharing/js/share.js')
+  script(src='/apps/files_sharing/js/sharetabview.js')
+  script(src='/apps/files_sharing/js/external.js')
+  script(src='/apps/files_texteditor/l10n/ko.js')
+  script(src='/apps/files_texteditor/js/editor.js')
+  script(src='/apps/files_texteditor/js/vendor/ace/src-noconflict/ace.js')
+  script(src='/apps/files_versions/l10n/ko.js')
+  script(src='/apps/files_versions/js/versionmodel.js')
+  script(src='/apps/files_versions/js/versioncollection.js')
+  script(src='/apps/files_versions/js/versionstabview.js')
+  script(src='/apps/files_versions/js/filesplugin.js')
+  script(src='/core/js/select2-toggleselect.js')
+  script(src='/core/js/systemtags/systemtags.js')
+  script(src='/core/js/systemtags/systemtagmodel.js')
+  script(src='/core/js/systemtags/systemtagsmappingcollection.js')
+  script(src='/core/js/systemtags/systemtagscollection.js')
+  script(src='/core/js/systemtags/systemtagsinputfield.js')
+  script(src='/core/js/systemtags/systemtagslist.js')
+  script(src='/apps/systemtags/l10n/ko.js')
+  script(src='/apps/systemtags/js/app.js')
+  script(src='/apps/systemtags/js/systemtagsfilelist.js')
+  script(src='/apps/systemtags/js/filesplugin.js')
+  script(src='/apps/systemtags/js/systemtagstabview.js')
+  script(src='/apps/systemtags/js/systemtagsinfoview.js')
+  script(src='/core/js/myJs.js')
+body#body-user
+    header(role='banner')
+      #header
+        a#owncloud(href='/', tabindex='1')
+          h1.logo-icon E.C.S
+        a.header-appname-container.menutoggle(href='#', tabindex='2')
+          button.burger
+            | 메뉴
+          h1.header-appname
+            | 파일
+        #logo-claim(style='display:none;')
+        #settings
+          #expand.menutoggle(tabindex='6',role='link')
+            .avatardiv(style='display: none')
+            span#expandDisplayName #{user}
+          #expanddiv
+            -var state = 'none'
+              if isAdmin
+                -state = 'block'
+              ul
+                li(style=`display: ${state}`)
+                  a(href='/log')
+                    img(alt='', src='/settings/img/admin.svg')
+                    | 로그
+                li(style=`display: ${state}`)
+                  a(href='/users')
+                    img(alt='', src='/settings/img/users.svg')
+                    | 사용자
+                li
+                  a#logout(href='/login/logout')
+                    img(alt='', src='/core/img/actions/logout.svg')
+                    | 로그아웃
+        form.searchbox(action='#', method='post', role='search', novalidate='')
+          label.hidden-visually(for='searchbox')
+            | search
+          input#searchbox(type='search', name='query', value='', required='', autocomplete='off', tabindex='5')
+    #content-wrapper
+      #content.app-files(role='main')
+        #app-navigation
+          ul.with-icon
+            li.nav-files(data-id='files')
+              a.nav-icon-files.svg(href='#')
+                | 모든 파일
+            li.nav-sharingin(data-id='sharingin')
+              a.nav-icon-sharingin.svg(href='#')
+                | 나에게 공유
+            li.nav-sharingout(data-id='sharingout')
+              a.nav-icon-sharingout.svg(href='#')
+                | 공유한 파일
+        #app-content(style="transition: all 0.3s ease 0s;")
+          #app-content-files.viewcontainer.hide-hidden-files.has-favorites.has-comments(style='min-height: initial;')
+            #controls(style='width: 823px; min-width: 823px;')
+              .breadcrumb
+                .crumb.svg.last(data-dir='/')
+                  a(href='/files')
+                    img.svg(src='/core/img/places/home.svg', alt='홈')
+              .actions.creatable
+                a.button.new(href='#', data-original-title='', title='')
+                  span.icon.icon-add
+                  span.hidden-visually 새로 만들기
+                #uploadprogresswrapper
+                  #uploadprogressbar
+                    em.label.outer(style='display:none')
+                      span.desktop 업로드 중...
+                      span.mobile ...
+                  input.stop.icon-close(type='button', style='display:none', value='')
+              #file_action_panel(activeaction='false')
+              .notCreatable.notPublic.hidden
+                | 여기에 파일을 업로드하거나 만들 권한이 없습니다
+              input#permissions(type='hidden', name='permissions', value='31')
+              input#free_space(type='hidden', value='32151445504')
+              input.max_human_file_size(type='hidden', value='(max)')
+            table#filestable.has-controls(data-allow-public-upload='yes' data-preview-x='32' data-preview-y='32')
+              thead(style='width: 822px;')
+                tr
+                  th#headerName.column-name
+                    #headerName-container
+                      a.name.sort.columntitle(data-sort='name')
+                        span 이름
+                        span.sort-indicator
+                  th#headerSize.column-size
+                    a.size.sort.columntitle(data-sort='size')
+                      span 크기
+                      span.sort-indicator
+                  th#headerDate.column-mtime
+                    a#modified.columntitle(data-sort='mtime')
+                      span 생성일
+                      span.sort-indicator
+                      span.sort-indicator
+                      span 삭제
+              tbody#fileList
+                -var sendPath
+                -var action
+                -var state
+                each file in files
+                  if file.datatype === 'directory'
+                    -sendPath = '/files'
+                    -method = 'get'
+                    -state = 'none'
+                  else
+                    -sendPath='/files/download'
+                    -method = 'post'
+                    -state = 'visible'
+                  if file.state === 'E'
+                    -state = 'none'
+                  form()
+                    tr.ui-droppable
+                      td.filename.ui-draggable
+                        #table_flax
+                          span.nametext
+                            span.filesnametext
+                              input(type='submit', style = 'border:none; background:none; color:black;', value=`${file.file_name}`, formaction=`${sendPath}`, onclick=`javascript:form.method='${method}'`)
+                          span.fileactions
+                            a.action.action-share.permanent(href='#', data-action='Share', data-original-title='', title='', style = `display:${state};`)
+                              span.icon.icon-shared
+                              span.hidden-visually 공유
+                      -var size = file.size
+                        if size === null
+                          td.filesize
+                        else if (size/1024/1024)>1
+                          td.filesize(style='color:rgb(159,159,159)') #{(size/1024/1024).toFixed(1)} MB
+                        else 
+                          td.filesize(style='color:rgb(159,159,159)') #{(size/1024).toFixed(1)} KB
+                      td.date #{file.timestamp}
+                        span.selectedActions
+                          input.delete_button(type='image', src ='/core/img/actions/delete.svg', formaction='/files/delete', onclick='javascript:form.method="POST"')
+                      input(type='hidden',name='fileKey',value=`${file.path}${file.file_name}`)
+                      input(type='hidden',  name='filePath', value=`${file.path}`)
+                      input(type='hidden',name='fileName',value=`${file.file_name}`)
+                      input(type='hidden',name='state',value=`${file.state}`)
+                      input(type='hidden',name='fileType',value=`${file.datatype}`)
+              tfoot 
+                form(method='POST')
+                  tr
+                    td
+                      input(type= 'file', name='uploadFiles')
+                      input(type='checkbox', id='encChk' name='encrypted')
+                      label(for='encChk') 암호화
+                    td
+                      input(type='submit', value='업로드', formaction='/files/upload' onclick='javascript: form.enctype="multipart/form-data";')
+                    td
+                      input(type ='submit', value='새폴더', formaction='/files/create_directory')
+                      input(type='hidden',  name='uploadPath', value=`${uploadPath}/`)
+                    
+            

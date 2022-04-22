@@ -1,0 +1,120 @@
+doctype html
+head
+  meta(charset='utf-8')
+  title 사용자 - E.C.S
+  meta(http-equiv='X-UA-Compatible')
+  meta(name='referrer', content='never')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0')
+  meta(name='theme-color', content='#1B223D')
+  link(rel='icon', href='/core/img/favicon.ico')
+  link(rel='apple-touch-icon-precomposed', href='/core/img/favicon-touch.png')
+  link(rel='mask-icon', sizes='any', href='/core/img/favicon-mask.svg', color='#1B223D')
+  link(rel='manifest', href='/core/img/manifest.json')
+  link(rel='stylesheet', href='/core/vendor/select2/select2.css')
+  link(rel='stylesheet', href='/core/css/styles.css')
+  link(rel='stylesheet', href='/core/css/inputs.css')
+  link(rel='stylesheet', href='/core/css/header.css')
+  link(rel='stylesheet', href='/core/css/icons.css')
+  link(rel='stylesheet', href='/core/css/fonts.css')
+  link(rel='stylesheet', href='/core/css/apps.css')
+  link(rel='stylesheet', href='/core/css/global.css')
+  link(rel='stylesheet', href='/core/css/fixes.css')
+  link(rel='stylesheet', href='/core/css/multiselect.css')
+  link(rel='stylesheet', href='/core/css/mobile.css')
+  link(rel='stylesheet', href='/core/vendor/jquery-ui/themes/base/jquery-ui.css')
+  link(rel='stylesheet', href='/core/css/jquery-ui-fixes.css')
+  link(rel='stylesheet', href='/core/css/tooltip.css')
+  link(rel='stylesheet', href='/core/css/share.css')
+  link(rel='stylesheet', href='/core/css/jquery.ocdialog.css')
+  link(rel='stylesheet', href='/apps/files/css/files.css')
+  link(rel='stylesheet', href='/apps/files/css/upload.css')
+  link(rel='stylesheet', href='/apps/files/css/mobile.css')
+  link(rel='stylesheet', href='/apps/files/css/detailsView.css')
+  link(rel='stylesheet', href='/core/css/systemtags.css')
+  link(rel='stylesheet' href='/settings/css/settings.css')
+  script(src='/core/vendor/jquery/dist/jquery.min.js')
+  script(src='/core/vendor/jquery-migrate/jquery-migrate.min.js')
+  script(src='/core/vendor/jquery-ui/ui/jquery-ui.custom.js')
+  script(src='/core/vendor/underscore/underscore.js')
+  script(src='/core/vendor/moment/min/moment-with-locales.js')
+  script(src='/core/vendor/handlebars/handlebars.js')
+  script(src='/core/vendor/blueimp-md5/js/md5.js')
+  script(src='/core/vendor/bootstrap/js/tooltip.js')
+  script(src='/core/vendor/backbone/backbone.js')
+  script(src='/core/vendor/es6-promise/es6-promise.auto.js')
+  script(src='/core/vendor/davclient.js/lib/client.js')
+  script(src='/core/vendor/clipboard/dist/clipboard.js')
+  script(src='/core/vendor/bowser/src/bowser.js')
+  script(src='/core/js/jquery.ocdialog.js')
+  script(src='/core/js/oc-dialogs.js')
+  script(src='/core/js/js.js')
+  script(src='/settings/l10n/ko.js')
+  script(src='/settings/js/users/deleteHandler.js')
+  script(src='/settings/js/users/filter.js')
+  script(src='/settings/js/users/users.js')
+  script(src='/settings/js/users/groups.js')
+  body#body-settings
+    header(role='banner')
+      #header
+        a#owncloud(href='/', tabindex='1')
+          h1.logo-icon E.C.S
+        a.header-appname-container.menutoggle(href='#', tabindex='2')
+          button.burger 메뉴
+          h1.header-appname 로그
+        #settings
+          #expand.menutoggle(tabindex='6', role='link')
+            .avatardiv(style='display: none')
+            span#expandDisplayName #{user}
+          #expanddiv
+            -var state = 'none'
+            if isAdmin
+              -state = 'block'
+            ul
+              li(style=`display: ${state}`)
+                a(href='/log')
+                  img(alt='', src='/settings/img/admin.svg')
+                  | 로그
+              li(style=`display: ${state}`)
+                a.active(href='/users')
+                  img(alt='', src='/settings/img/users.svg')
+                  | 사용자
+              li
+                a#logout(href='/login/logout')
+                  img(alt='', src='/core/img/actions/logout.svg')
+                  | 로그아웃
+        form.searchbox(action='#', method='post', role='search', novalidate='')
+          label.hidden-visually(for='searchbox')
+            | 검색
+          input#searchbox(type='search', name='query', value='', required='', autocomplete='off', tabindex='5')
+    #content-wrapper
+      #content.app-files(role='main')
+        #app-navigation
+          ul
+            li(style=`display: ${state}`)
+              a(data-navigation='all', href='#')
+                | 모든 로그
+            li
+              a(data-navigation='self', href='#')
+                | 내 로그
+            li(style=`display: ${state}`)
+              a(data-navigation='by', href='#')
+                | 다른 사용자의 로그
+        #app-content(style="transition: all 0.3s ease 0s;")
+          #app-content-files.viewcontainer.hide-hidden-files.has-favorites.has-comments(style='min-height: initial;')  
+            table#filestable.has-controls(data-allow-public-upload='yes' data-preview-x='32' data-preview-y='32')
+              thead(style='width: 822px;')
+                tr
+                  th 날짜
+                  th 계정
+                  th 활동
+                  th 파일
+              tbody#logList
+                -var sendPath
+                -var action
+                -var state
+                each log in logs
+                  tr
+                    td #{log.timestamp}
+                    td #{log.user_id}
+                    td #{log.activity}
+                    td #{log.file_name}

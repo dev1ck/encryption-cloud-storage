@@ -1,0 +1,118 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section { margin:0; padding:0; border:0; outline:0; font-weight:inherit; font-size:100%; font-family:inherit; vertical-align:baseline; cursor:default; }
+html, body { height:100%; }
+article, aside, dialog, figure, footer, header, hgroup, nav, section { display:block; }
+body { line-height:1.5; }
+table { border-collapse:separate; border-spacing:0; white-space:nowrap; }
+caption, th, td { text-align:left; font-weight:normal; }
+table, td, th { vertical-align:middle; }
+a { border:0; color:#000; text-decoration:none;}
+a, a *, input, input *, select, .button span, label { cursor:pointer; }
+ul { list-style:none; }
+
+body {
+	background-color: #ffffff;
+	font-weight: 400;
+	font-size: .8em;
+	line-height: 1.6em;
+	font-family: 'Open Sans', Frutiger, Calibri, 'Myriad Pro', Myriad, sans-serif;
+	color: #000;
+	height: auto;
+}
+
+#body-user .warning, #body-settings .warning {
+	margin-top: 8px;
+	padding: 5px;
+	background: #fdd;
+	border-radius: 3px;
+}
+#body-login #header {
+	padding-top: 100px;
+}
+#content-wrapper {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden; /* prevent horizontal scrollbar */
+	padding-top: 45px;
+	box-sizing:border-box;
+}
+.viewer-mode #app-navigation+#app-content #controls {
+	left: 0;
+}
+#app-navigation+#app-content #controls {
+	left: 250px;
+}
+.viewer-mode #app-navigation+#app-content #controls {
+	left: 0;
+}
+#oc-dialog-filepicker-content .filelist .date {
+	float: right;
+	margin-right: 10px;
+	margin-top: 0;
+	padding-top: 9px;
+}
+.selectedActions a {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	opacity: 0;
+}
+tr .action:not(.permanent),
+.selectedActions a {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	opacity: 0;
+}
+tr:hover .action,
+tr:focus .action,
+tr .action.permanent,
+.selectedActions a {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	opacity: .5;
+}
+tr .action {
+	width: 16px;
+	height: 16px;
+}
+.header-action {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+	opacity: .8;
+}
+tr:hover .action:hover,
+tr:focus .action:focus,
+.selectedActions a:hover,
+.selectedActions a:focus,
+.header-action:hover,
+.header-action:focus {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	opacity: 1;
+}
+tbody tr:hover,
+tbody tr:focus,
+tbody tr:active {
+	background-color: #f8f8f8;
+}
+.searchbox input[type="search"] {
+	position: relative;
+	font-size: 1.2em;
+	padding: 3px;
+	padding-left: 25px;
+	background: transparent url('../img/actions/search-white.svg') no-repeat 6px center;
+	color: #fff;
+	border: 0;
+	border-radius: 3px;
+	margin-top: 9px;
+	float: right;
+	width: 0;
+	cursor: pointer;
+	-webkit-transition: all 100ms;
+	transition: all 100ms;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	opacity: .7;
+}
+.searchbox input[type="search"]:focus,
+.searchbox input[type="search"]:active,
+.searchbox input[type="search"]:valid {
+	color: #fff;
+	width: 155px;
+	max-width: 50%;
+	cursor: text;
+	background-color: #112;
+}

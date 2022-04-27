@@ -1,0 +1,50 @@
+create table account(
+user_id varchar(255) not null,
+password longtext not null,
+encryption_key longtext,
+volume varchar(32),
+create_account datetime not null,
+laste_login datetime,
+state varchar(32) not null,
+primary key (user_id));
+
+create table files(
+file_id bigint not null auto_increment,
+file_name varchar(4000) not null,
+datatype varchar(255),
+size int,
+path varchar(4000),
+timestamp datetime not null,
+state varchar(32) not null,
+user_id varchar(255) not null,
+primary key (file_id),
+foreign key (user_id)
+REFERENCES  account (user_id));
+
+create table log(
+log_id bigint not null auto_increment,
+timestamp datetime not null,
+activity varchar(4000) not null,
+user_id varchar(255) not null,
+file_id bigint,
+primary key (log_id),
+foreign key (file_id) REFERENCES files (file_id),
+foreign key (user_id) REFERENCES account (user_id));
+
+create table share(
+share_id bigint not null auto_increment,
+timestamp datetime not null,
+target_user varchar(255) not null,
+user_id varchar(255) not null,
+file_id bigint not null,
+primary key (share_id),
+foreign key (file_id) REFERENCES files (file_id),
+foreign key (user_id) REFERENCES account (user_id));
+
+create table trash(
+trash_id bigint not null auto_increment,
+timestamp datetime not null,
+file_id bigint not null,
+primary key (trash_id),
+foreign key (file_id)
+REFERENCES files (file_id));

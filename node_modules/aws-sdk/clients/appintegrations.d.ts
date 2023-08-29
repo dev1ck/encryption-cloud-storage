@@ -12,6 +12,14 @@ declare class AppIntegrations extends Service {
   constructor(options?: AppIntegrations.Types.ClientConfiguration)
   config: Config & AppIntegrations.Types.ClientConfiguration;
   /**
+   * Creates and persists a DataIntegration resource.  You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API. 
+   */
+  createDataIntegration(params: AppIntegrations.Types.CreateDataIntegrationRequest, callback?: (err: AWSError, data: AppIntegrations.Types.CreateDataIntegrationResponse) => void): Request<AppIntegrations.Types.CreateDataIntegrationResponse, AWSError>;
+  /**
+   * Creates and persists a DataIntegration resource.  You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API. 
+   */
+  createDataIntegration(callback?: (err: AWSError, data: AppIntegrations.Types.CreateDataIntegrationResponse) => void): Request<AppIntegrations.Types.CreateDataIntegrationResponse, AWSError>;
+  /**
    * Creates an EventIntegration, given a specified name, description, and a reference to an Amazon EventBridge bus in your account and a partner event source that pushes events to that bus. No objects are created in the your account, only metadata that is persisted on the EventIntegration control plane.
    */
   createEventIntegration(params: AppIntegrations.Types.CreateEventIntegrationRequest, callback?: (err: AWSError, data: AppIntegrations.Types.CreateEventIntegrationResponse) => void): Request<AppIntegrations.Types.CreateEventIntegrationResponse, AWSError>;
@@ -19,6 +27,14 @@ declare class AppIntegrations extends Service {
    * Creates an EventIntegration, given a specified name, description, and a reference to an Amazon EventBridge bus in your account and a partner event source that pushes events to that bus. No objects are created in the your account, only metadata that is persisted on the EventIntegration control plane.
    */
   createEventIntegration(callback?: (err: AWSError, data: AppIntegrations.Types.CreateEventIntegrationResponse) => void): Request<AppIntegrations.Types.CreateEventIntegrationResponse, AWSError>;
+  /**
+   * Deletes the DataIntegration. Only DataIntegrations that don't have any DataIntegrationAssociations can be deleted. Deleting a DataIntegration also deletes the underlying Amazon AppFlow flow and service linked role.   You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API. 
+   */
+  deleteDataIntegration(params: AppIntegrations.Types.DeleteDataIntegrationRequest, callback?: (err: AWSError, data: AppIntegrations.Types.DeleteDataIntegrationResponse) => void): Request<AppIntegrations.Types.DeleteDataIntegrationResponse, AWSError>;
+  /**
+   * Deletes the DataIntegration. Only DataIntegrations that don't have any DataIntegrationAssociations can be deleted. Deleting a DataIntegration also deletes the underlying Amazon AppFlow flow and service linked role.   You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API. 
+   */
+  deleteDataIntegration(callback?: (err: AWSError, data: AppIntegrations.Types.DeleteDataIntegrationResponse) => void): Request<AppIntegrations.Types.DeleteDataIntegrationResponse, AWSError>;
   /**
    * Deletes the specified existing event integration. If the event integration is associated with clients, the request is rejected.
    */
@@ -28,13 +44,37 @@ declare class AppIntegrations extends Service {
    */
   deleteEventIntegration(callback?: (err: AWSError, data: AppIntegrations.Types.DeleteEventIntegrationResponse) => void): Request<AppIntegrations.Types.DeleteEventIntegrationResponse, AWSError>;
   /**
-   * Return information about the event integration.
+   * Returns information about the DataIntegration.  You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API. 
+   */
+  getDataIntegration(params: AppIntegrations.Types.GetDataIntegrationRequest, callback?: (err: AWSError, data: AppIntegrations.Types.GetDataIntegrationResponse) => void): Request<AppIntegrations.Types.GetDataIntegrationResponse, AWSError>;
+  /**
+   * Returns information about the DataIntegration.  You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API. 
+   */
+  getDataIntegration(callback?: (err: AWSError, data: AppIntegrations.Types.GetDataIntegrationResponse) => void): Request<AppIntegrations.Types.GetDataIntegrationResponse, AWSError>;
+  /**
+   * Returns information about the event integration.
    */
   getEventIntegration(params: AppIntegrations.Types.GetEventIntegrationRequest, callback?: (err: AWSError, data: AppIntegrations.Types.GetEventIntegrationResponse) => void): Request<AppIntegrations.Types.GetEventIntegrationResponse, AWSError>;
   /**
-   * Return information about the event integration.
+   * Returns information about the event integration.
    */
   getEventIntegration(callback?: (err: AWSError, data: AppIntegrations.Types.GetEventIntegrationResponse) => void): Request<AppIntegrations.Types.GetEventIntegrationResponse, AWSError>;
+  /**
+   * Returns a paginated list of DataIntegration associations in the account.  You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API. 
+   */
+  listDataIntegrationAssociations(params: AppIntegrations.Types.ListDataIntegrationAssociationsRequest, callback?: (err: AWSError, data: AppIntegrations.Types.ListDataIntegrationAssociationsResponse) => void): Request<AppIntegrations.Types.ListDataIntegrationAssociationsResponse, AWSError>;
+  /**
+   * Returns a paginated list of DataIntegration associations in the account.  You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API. 
+   */
+  listDataIntegrationAssociations(callback?: (err: AWSError, data: AppIntegrations.Types.ListDataIntegrationAssociationsResponse) => void): Request<AppIntegrations.Types.ListDataIntegrationAssociationsResponse, AWSError>;
+  /**
+   * Returns a paginated list of DataIntegrations in the account.  You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API. 
+   */
+  listDataIntegrations(params: AppIntegrations.Types.ListDataIntegrationsRequest, callback?: (err: AWSError, data: AppIntegrations.Types.ListDataIntegrationsResponse) => void): Request<AppIntegrations.Types.ListDataIntegrationsResponse, AWSError>;
+  /**
+   * Returns a paginated list of DataIntegrations in the account.  You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API. 
+   */
+  listDataIntegrations(callback?: (err: AWSError, data: AppIntegrations.Types.ListDataIntegrationsResponse) => void): Request<AppIntegrations.Types.ListDataIntegrationsResponse, AWSError>;
   /**
    * Returns a paginated list of event integration associations in the account. 
    */
@@ -76,6 +116,14 @@ declare class AppIntegrations extends Service {
    */
   untagResource(callback?: (err: AWSError, data: AppIntegrations.Types.UntagResourceResponse) => void): Request<AppIntegrations.Types.UntagResourceResponse, AWSError>;
   /**
+   * Updates the description of a DataIntegration.  You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API. 
+   */
+  updateDataIntegration(params: AppIntegrations.Types.UpdateDataIntegrationRequest, callback?: (err: AWSError, data: AppIntegrations.Types.UpdateDataIntegrationResponse) => void): Request<AppIntegrations.Types.UpdateDataIntegrationResponse, AWSError>;
+  /**
+   * Updates the description of a DataIntegration.  You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API. 
+   */
+  updateDataIntegration(callback?: (err: AWSError, data: AppIntegrations.Types.UpdateDataIntegrationResponse) => void): Request<AppIntegrations.Types.UpdateDataIntegrationResponse, AWSError>;
+  /**
    * Updates the description of an event integration.
    */
   updateEventIntegration(params: AppIntegrations.Types.UpdateEventIntegrationRequest, callback?: (err: AWSError, data: AppIntegrations.Types.UpdateEventIntegrationResponse) => void): Request<AppIntegrations.Types.UpdateEventIntegrationResponse, AWSError>;
@@ -88,6 +136,90 @@ declare namespace AppIntegrations {
   export type Arn = string;
   export type ClientAssociationMetadata = {[key: string]: NonBlankString};
   export type ClientId = string;
+  export interface CreateDataIntegrationRequest {
+    /**
+     * The name of the DataIntegration.
+     */
+    Name: Name;
+    /**
+     * A description of the DataIntegration.
+     */
+    Description?: Description;
+    /**
+     * The KMS key for the DataIntegration.
+     */
+    KmsKey: NonBlankString;
+    /**
+     * The URI of the data source.
+     */
+    SourceURI: SourceURI;
+    /**
+     * The name of the data and how often it should be pulled from the source.
+     */
+    ScheduleConfig: ScheduleConfiguration;
+    /**
+     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+     */
+    Tags?: TagMap;
+    /**
+     * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs.
+     */
+    ClientToken?: IdempotencyToken;
+    /**
+     * The configuration for what files should be pulled from the source.
+     */
+    FileConfiguration?: FileConfiguration;
+    /**
+     * The configuration for what data should be pulled from the source.
+     */
+    ObjectConfiguration?: ObjectConfiguration;
+  }
+  export interface CreateDataIntegrationResponse {
+    /**
+     * The Amazon Resource Name (ARN)
+     */
+    Arn?: Arn;
+    /**
+     * A unique identifier.
+     */
+    Id?: UUID;
+    /**
+     * The name of the DataIntegration.
+     */
+    Name?: Name;
+    /**
+     * A description of the DataIntegration.
+     */
+    Description?: Description;
+    /**
+     * The KMS key for the DataIntegration.
+     */
+    KmsKey?: NonBlankString;
+    /**
+     * The URI of the data source.
+     */
+    SourceURI?: SourceURI;
+    /**
+     * The name of the data and how often it should be pulled from the source.
+     */
+    ScheduleConfiguration?: ScheduleConfiguration;
+    /**
+     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+     */
+    Tags?: TagMap;
+    /**
+     * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs.
+     */
+    ClientToken?: IdempotencyToken;
+    /**
+     * The configuration for what files should be pulled from the source.
+     */
+    FileConfiguration?: FileConfiguration;
+    /**
+     * The configuration for what data should be pulled from the source.
+     */
+    ObjectConfiguration?: ObjectConfiguration;
+  }
   export interface CreateEventIntegrationRequest {
     /**
      * The name of the event integration.
@@ -106,11 +238,11 @@ declare namespace AppIntegrations {
      */
     EventBridgeBus: EventBridgeBus;
     /**
-     * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+     * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs.
      */
     ClientToken?: IdempotencyToken;
     /**
-     * One or more tags.
+     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     Tags?: TagMap;
   }
@@ -119,6 +251,44 @@ declare namespace AppIntegrations {
      * The Amazon Resource Name (ARN) of the event integration. 
      */
     EventIntegrationArn?: Arn;
+  }
+  export interface DataIntegrationAssociationSummary {
+    /**
+     * The Amazon Resource Name (ARN) of the DataIntegration association.
+     */
+    DataIntegrationAssociationArn?: Arn;
+    /**
+     * The Amazon Resource Name (ARN) of the DataIntegration.
+     */
+    DataIntegrationArn?: Arn;
+    /**
+     * The identifier for the client that is associated with the DataIntegration association.
+     */
+    ClientId?: ClientId;
+  }
+  export type DataIntegrationAssociationsList = DataIntegrationAssociationSummary[];
+  export interface DataIntegrationSummary {
+    /**
+     * The Amazon Resource Name (ARN) of the DataIntegration.
+     */
+    Arn?: Arn;
+    /**
+     * The name of the DataIntegration.
+     */
+    Name?: Name;
+    /**
+     * The URI of the data source.
+     */
+    SourceURI?: SourceURI;
+  }
+  export type DataIntegrationsList = DataIntegrationSummary[];
+  export interface DeleteDataIntegrationRequest {
+    /**
+     * A unique identifier for the DataIntegration.
+     */
+    DataIntegrationIdentifier: Identifier;
+  }
+  export interface DeleteDataIntegrationResponse {
   }
   export interface DeleteEventIntegrationRequest {
     /**
@@ -159,7 +329,7 @@ declare namespace AppIntegrations {
      */
     EventBridgeBus?: EventBridgeBus;
     /**
-     * The tags.
+     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     Tags?: TagMap;
   }
@@ -191,6 +361,68 @@ declare namespace AppIntegrations {
   }
   export type EventIntegrationAssociationsList = EventIntegrationAssociation[];
   export type EventIntegrationsList = EventIntegration[];
+  export type Fields = string;
+  export type FieldsList = Fields[];
+  export type FieldsMap = {[key: string]: FieldsList};
+  export interface FileConfiguration {
+    /**
+     * Identifiers for the source folders to pull all files from recursively.
+     */
+    Folders: FolderList;
+    /**
+     * Restrictions for what files should be pulled from the source.
+     */
+    Filters?: FieldsMap;
+  }
+  export type FolderList = NonBlankLongString[];
+  export interface GetDataIntegrationRequest {
+    /**
+     * A unique identifier.
+     */
+    Identifier: Identifier;
+  }
+  export interface GetDataIntegrationResponse {
+    /**
+     * The Amazon Resource Name (ARN) for the DataIntegration.
+     */
+    Arn?: Arn;
+    /**
+     * A unique identifier.
+     */
+    Id?: UUID;
+    /**
+     * The name of the DataIntegration.
+     */
+    Name?: Name;
+    /**
+     * The KMS key for the DataIntegration.
+     */
+    Description?: Description;
+    /**
+     * The KMS key for the DataIntegration.
+     */
+    KmsKey?: NonBlankString;
+    /**
+     * The URI of the data source.
+     */
+    SourceURI?: SourceURI;
+    /**
+     * The name of the data and how often it should be pulled from the source.
+     */
+    ScheduleConfiguration?: ScheduleConfiguration;
+    /**
+     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+     */
+    Tags?: TagMap;
+    /**
+     * The configuration for what files should be pulled from the source.
+     */
+    FileConfiguration?: FileConfiguration;
+    /**
+     * The configuration for what data should be pulled from the source.
+     */
+    ObjectConfiguration?: ObjectConfiguration;
+  }
   export interface GetEventIntegrationRequest {
     /**
      * The name of the event integration. 
@@ -219,11 +451,56 @@ declare namespace AppIntegrations {
      */
     EventFilter?: EventFilter;
     /**
-     * One or more tags.
+     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     Tags?: TagMap;
   }
   export type IdempotencyToken = string;
+  export type Identifier = string;
+  export interface ListDataIntegrationAssociationsRequest {
+    /**
+     * A unique identifier for the DataIntegration.
+     */
+    DataIntegrationIdentifier: Identifier;
+    /**
+     * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+     */
+    NextToken?: NextToken;
+    /**
+     * The maximum number of results to return per page.
+     */
+    MaxResults?: MaxResults;
+  }
+  export interface ListDataIntegrationAssociationsResponse {
+    /**
+     * The Amazon Resource Name (ARN) and unique ID of the DataIntegration association.
+     */
+    DataIntegrationAssociations?: DataIntegrationAssociationsList;
+    /**
+     * If there are additional results, this is the token for the next set of results.
+     */
+    NextToken?: NextToken;
+  }
+  export interface ListDataIntegrationsRequest {
+    /**
+     * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+     */
+    NextToken?: NextToken;
+    /**
+     * The maximum number of results to return per page.
+     */
+    MaxResults?: MaxResults;
+  }
+  export interface ListDataIntegrationsResponse {
+    /**
+     * The DataIntegrations associated with this account.
+     */
+    DataIntegrations?: DataIntegrationsList;
+    /**
+     * If there are additional results, this is the token for the next set of results.
+     */
+    NextToken?: NextToken;
+  }
   export interface ListEventIntegrationAssociationsRequest {
     /**
      * The name of the event integration. 
@@ -283,8 +560,26 @@ declare namespace AppIntegrations {
   export type MaxResults = number;
   export type Name = string;
   export type NextToken = string;
+  export type NonBlankLongString = string;
   export type NonBlankString = string;
+  export type Object = string;
+  export type ObjectConfiguration = {[key: string]: FieldsMap};
+  export interface ScheduleConfiguration {
+    /**
+     * The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format.
+     */
+    FirstExecutionFrom?: NonBlankString;
+    /**
+     * The name of the object to pull from the data source.
+     */
+    Object?: Object;
+    /**
+     * How often the data should be pulled from data source.
+     */
+    ScheduleExpression: NonBlankString;
+  }
   export type Source = string;
+  export type SourceURI = string;
   export type TagKey = string;
   export type TagKeyList = TagKey[];
   export type TagMap = {[key: string]: TagValue};
@@ -294,7 +589,7 @@ declare namespace AppIntegrations {
      */
     resourceArn: Arn;
     /**
-     * One or more tags. 
+     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     tags: TagMap;
   }
@@ -313,6 +608,22 @@ declare namespace AppIntegrations {
     tagKeys: TagKeyList;
   }
   export interface UntagResourceResponse {
+  }
+  export interface UpdateDataIntegrationRequest {
+    /**
+     * A unique identifier for the DataIntegration.
+     */
+    Identifier: Identifier;
+    /**
+     * The name of the DataIntegration.
+     */
+    Name?: Name;
+    /**
+     * A description of the DataIntegration.
+     */
+    Description?: Description;
+  }
+  export interface UpdateDataIntegrationResponse {
   }
   export interface UpdateEventIntegrationRequest {
     /**
